@@ -1,40 +1,41 @@
 package mercadinho;
+import java.util.Date;
+import java.util.UUID;
 
 public class Lote {
-	private String ID;
+	private String id;
 	private Produto produto;
-	private String dataFabricacao;
-	private String dataVencimento;
-	private int quantidade;
+	private Date dataFabricacao;
+	private Date dataVencimento;
+	private Long quantidade;
 	
-	public Lote(Produto produto, String dataFabricacao, String dataVencimento, int quantidade) {
+	public Lote(Produto produto, Long quantidade) {
+		this.id = UUID.randomUUID().toString();
 		this.produto = produto;
-		this.dataFabricacao = dataFabricacao;
-		this.dataVencimento = dataVencimento;
 		this.quantidade = quantidade;
 	}
 
-	public String getID() {
-		return ID;
+	public String getId() {
+		return id;
 	}
 
 	public Produto getProduto() {
 		return produto;
 	}
 
-	public String getDataFabricacao() {
+	public Date getDataFabricacao() {
 		return dataFabricacao;
 	}
 
-	public String getDataVencimento() {
+	public Date getDataVencimento() {
 		return dataVencimento;
 	}
 
-	public int getQuantidade() {
+	public Long getQuantidade() {
 		return quantidade;
 	}
 	
 	public String toString() {
-		return "";
+		return "Lote ID: " + getId() + " - Produto: " + getProduto().getNome() + " - " + getQuantidade() + " itens";
 	}
 }
